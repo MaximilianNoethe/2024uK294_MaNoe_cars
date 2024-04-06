@@ -1,7 +1,7 @@
 export interface CarProp {
   id: number
   name: String
-  year: number
+  year: String
 }
 
 function Car(prop: CarProp) {

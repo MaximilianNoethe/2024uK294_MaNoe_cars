@@ -1,5 +1,5 @@
-// waaaa u
 
+import Navbar from "../Molecules/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import CreateCarPage from "./CreateCarPage";
@@ -10,7 +10,7 @@ import DetailedCarPage from "./DetailedCarPage";
 function App() {
   return (
     <>
-      
+    
       <BrowserRouter>
         <Routes>
           <Route path="car" element={<CarPage />} />
@@ -18,7 +18,6 @@ function App() {
           <Route path="createCar" element={<CreateCarPage />} />
           <Route path="editCar" element={<EditCarPage />} />
           <Route path="details" element={<DetailedCarPage />} />
-          
         </Routes>
       </BrowserRouter>
     </>
