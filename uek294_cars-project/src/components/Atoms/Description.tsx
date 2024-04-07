@@ -1,7 +1,11 @@
+import { Typography } from "@mui/material";
+
 function Description() {
   return (
     <>
-      <h2>Every Car available:</h2>
+      <Typography>
+        <h2>Every Car available:</h2>
+      </Typography>
     </>
   );
 }

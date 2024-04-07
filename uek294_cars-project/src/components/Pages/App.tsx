@@ -1,5 +1,3 @@
-
-import Navbar from "../Molecules/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import CreateCarPage from "./CreateCarPage";
@@ -14,10 +12,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="car" Component={CarPage} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="createCar" element={<CreateCarPage />} />
-          <Route path="editCar" element={<EditCarPage />} />
-          <Route path="details" element={<DetailedCarPage />} />
+          <Route path="login" Component={LoginPage} />
+          <Route path="createCar" Component={CreateCarPage} />
+          <Route path="editCar" Component={EditCarPage} />
+          <Route path="details" Component={DetailedCarPage} />
         </Routes>
       </BrowserRouter>
     </>
