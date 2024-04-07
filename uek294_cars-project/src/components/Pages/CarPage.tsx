@@ -24,6 +24,18 @@ function CarPage() {
       });
   }, []);
 
+  const deleteOnClickHandler = async (carId) => {
+    try {
+     /* await CarService().deleteCar(carId);*/ // Use it to delete whole cars in JSON-Server. Without it, it only deletes displayed data and none from the server.
+
+      const updateCarData = APICarData.filter((car) => car.id !== carId);
+      setAPICarData(updateCarData);
+    } catch (error) {
+      console.error("Error deleting a car:", error);
+      
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -32,7 +44,7 @@ function CarPage() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="right">Car ID</TableCell>
+              <TableCell>Car ID</TableCell>
               <TableCell align="right">Name</TableCell>
               <TableCell align="right">Year</TableCell>
             </TableRow>
@@ -40,13 +52,14 @@ function CarPage() {
           <TableBody>
             {APICarData.map((car) => {
               return (
-                <TableRow>
-                  <TableCell component="th" scope="row"></TableCell>
-                  <TableCell align="right">{car.id}</TableCell>
+                <TableRow
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                  <TableCell component="th" scope="row">{car.id}</TableCell>
+                  
                   <TableCell align="right">{car.Name}</TableCell>
 
                   <TableCell align="right">{car.Year}</TableCell>
-                  <IconButton edge="end" aria-label="delete">
+                  <IconButton edge="end" aria-label="delete" onClick={() => deleteOnClickHandler(car.id)}>
                     <DeleteIcon />
                   </IconButton>
                 </TableRow>
