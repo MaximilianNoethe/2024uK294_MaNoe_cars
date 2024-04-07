@@ -9,17 +9,19 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
-import { CarProp } from "./Car";
 import { useEffect, useState } from "react";
-import getAllCars from "../../Service/CarDataService";
+import CarService from "../../Service/CarDataService";
 
 function CarPage() {
-  const [carList, setCarList] = useState<CarProp[]>([]);
+  const [APICarData, setAPICarData] = useState([]);
 
   useEffect(() => {
-    getAllCars()
+    CarService()
       .getCarData()
-      .then((carData) => setCarList(carData));
+      .then((response) => {
+        setAPICarData(response);
+        console.log(response);
+      });
   }, []);
 
   return (
@@ -30,26 +32,26 @@ function CarPage() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Car ID</TableCell>
+              <TableCell align="right">Car ID</TableCell>
               <TableCell align="right">Name</TableCell>
               <TableCell align="right">Year</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {carList.map((car) => (
-              <TableRow
-                key={car.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row"></TableCell>
-                <TableCell align="right">{car.name}</TableCell>
+            {APICarData.map((car) => {
+              return (
+                <TableRow>
+                  <TableCell component="th" scope="row"></TableCell>
+                  <TableCell align="right">{car.id}</TableCell>
+                  <TableCell align="right">{car.Name}</TableCell>
 
-                <TableCell align="right">{car.year}</TableCell>
-                <IconButton edge="end" aria-label="delete">
-                  <DeleteIcon />
-                </IconButton>
-              </TableRow>
-            ))}
+                  <TableCell align="right">{car.Year}</TableCell>
+                  <IconButton edge="end" aria-label="delete">
+                    <DeleteIcon />
+                  </IconButton>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>

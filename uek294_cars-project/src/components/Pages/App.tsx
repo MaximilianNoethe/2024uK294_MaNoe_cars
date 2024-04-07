@@ -13,7 +13,7 @@ function App() {
     
       <BrowserRouter>
         <Routes>
-          <Route path="car" element={<CarPage />} />
+          <Route path="car" Component={CarPage} />
           <Route path="login" element={<LoginPage />} />
           <Route path="createCar" element={<CreateCarPage />} />
           <Route path="editCar" element={<EditCarPage />} />

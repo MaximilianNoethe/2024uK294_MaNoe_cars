@@ -2,7 +2,7 @@ import { AxiosInstance } from "axios";
 import { defaultAxiosInstance } from "./Api";
 import { login } from "./Authorization";
 
-const getAllCars = (api: AxiosInstance = defaultAxiosInstance) => ({
+const CarService = (api: AxiosInstance = defaultAxiosInstance) => ({
   getCarData: async () => {
     try {
       await login("maximilian@mail.com", "1234");
@@ -17,12 +17,12 @@ const getAllCars = (api: AxiosInstance = defaultAxiosInstance) => ({
         },
       };
 
-      const response = await api.get("cars?_limit=15", config);
-      return response.data;
+      const response = await api.get("cars", config);
+      return response["data"];
     } catch (error) {
       throw error;
     }
   },
 });
 
-export default getAllCars;
+export default CarService;
