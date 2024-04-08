@@ -1,8 +1,5 @@
 //Create car
 import Navbar from "../Molecules/Navbar";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { Button, Typography } from "@mui/material";
@@ -27,21 +24,23 @@ function CreateCarPage() {
       <Navbar />
       <h1>Create a new car</h1>
 
-      <Card className="cardWrapper" sx={{ maxWidth: 400 }}>
+      
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <CardContent>
+           
               <Typography>
                 <TextField
-                  id="standard-required-read-only-input"
+                  id="margin-normal"
                   label="Name"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)} // Rendered the whole site and checks if something changed, if so then it sets the new data
                   variant="standard"
                 />
+                <br />
                 <TextField
-                  id="standard-required-read-only-input"
+                  id="margin-normal"
                   label="Year"
+                  // type="date"
                   value={year}
                   onChange={(e) => setYear(e.target.value)}
                   variant="standard"
@@ -55,10 +54,10 @@ function CreateCarPage() {
               >
                 Create
               </Button>
-            </CardContent>
+           
           </Grid>
         </Grid>
-      </Card>
+      
     </>
   );
 }
