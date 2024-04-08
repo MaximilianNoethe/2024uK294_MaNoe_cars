@@ -15,6 +15,7 @@ import CarService from "../../Service/CarDataService";
 function CarPage() {
   const [APICarData, setAPICarData] = useState([]);
 
+
   useEffect(() => {
     CarService()
       .getCarData()
@@ -31,9 +32,10 @@ function CarPage() {
       const updatedCarData = APICarData.filter((car) => car.id !== carId);
       setAPICarData(updatedCarData);
     } catch (error) {
-      console.error("Error deleting a car:", error);
+      alert("Error deleting a car:");
     }
   };
+
 
   return (
     <>
