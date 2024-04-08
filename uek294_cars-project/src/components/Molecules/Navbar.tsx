@@ -11,6 +11,7 @@ import Menu from "@mui/material/Menu";
 import AddIcon from "@mui/icons-material/Add";
 import Fab from "@mui/material/Fab";
 import AddCarButton from "../Atoms/AddCarButton";
+import HomeButton from "../Atoms/HomeButton";
 
 export default function ButtonAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -38,9 +39,9 @@ export default function ButtonAppBar() {
 
           <Title />
 
-          <AddCarButton />
-
           
+          <HomeButton />
+          <AddCarButton />
 
           <div>
             <IconButton
