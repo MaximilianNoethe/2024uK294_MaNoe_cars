@@ -1,5 +1,10 @@
 import { defaultAxiosInstance } from "./Api";
 
+export const loginRequest = {
+  email: String,
+  password: String,
+};
+
 export const login = async (email: string, password: string) => {
   try {
     const response = await defaultAxiosInstance.post("login", {
