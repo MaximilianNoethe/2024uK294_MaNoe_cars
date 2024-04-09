@@ -10,7 +10,7 @@ export default function AddCarButton() {
       color="secondary"
       aria-label="add"
       component={Link}
-      to="/createCar"
+      to="/post"
     >
       <AddIcon />
     </Fab>
