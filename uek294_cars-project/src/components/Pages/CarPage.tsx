@@ -8,13 +8,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { IconButton } from "@mui/material";
+import { IconButton, Link } from "@mui/material";
 import { useEffect, useState } from "react";
 import CarService from "../../Service/CarDataService";
+import EditCarButton from "../Atoms/EditCarButton";
 
 function CarPage() {
   const [APICarData, setAPICarData] = useState([]);
-
+ 
 
   useEffect(() => {
     CarService()
@@ -36,13 +37,12 @@ function CarPage() {
     }
   };
 
-
   return (
     <>
       <Navbar />
       <Description />
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table>
           <TableHead>
             <TableRow>
               <TableCell>Car ID</TableCell>
@@ -53,15 +53,9 @@ function CarPage() {
           <TableBody>
             {APICarData.map((car) => {
               return (
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {car.id}
-                  </TableCell>
-
+                <TableRow>
+                  <TableCell>{car.id}</TableCell>
                   <TableCell align="right">{car.Name}</TableCell>
-
                   <TableCell align="right">{car.Year}</TableCell>
                   <IconButton
                     edge="end"
@@ -70,6 +64,7 @@ function CarPage() {
                   >
                     <DeleteIcon />
                   </IconButton>
+                 <EditCarButton carId={car.id}/>
                 </TableRow>
               );
             })}
