@@ -3,19 +3,36 @@ import Navbar from "../Molecules/Navbar";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { Button, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CarService from "../../Service/CarDataService";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function EditCarPage() {
+  const { carId } = useParams(); // Gets carId from URL params
   const [name, setName] = useState("");
   const [year, setYear] = useState("");
 
+  useEffect(() => {
+    // Function to load data from car with the selected carId
+    const fetchData = async () => {
+      try {
+        const carData = await CarService().getCarById(carId);
+        setName(carData.Name);
+        setYear(carData.Year);
+      } catch (error) {
+        alert("Error fetching car data.");
+      }
+    };
+
+    fetchData();
+  }, [carId]);
+
   const updateOnClickHandler = async () => {
     try {
-      await CarService().updateCar(name, year);
+      await CarService().updateCar(carId, name, year);
+      alert("Updated car successful.")
     } catch (error) {
-      console.error("Error updating a car", error);
+      alert("Error updating a car");
     }
   };
   return (
@@ -49,7 +66,7 @@ function EditCarPage() {
             component={Link}
             to="/car"
           >
-            Update
+            Update car
           </Button>
         </Grid>
       </Grid>
