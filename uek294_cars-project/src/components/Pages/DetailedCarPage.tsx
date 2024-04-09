@@ -38,15 +38,14 @@ function DetailedCarPage() {
         <Grid item xs={6}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              <TextField
-                id="standard-required-read-only-input"
+            <TextField
+                id="outlined-required-read-only-input"
                 label="Carname"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 InputProps={{
                   readOnly: true,
                 }}
-                variant="standard"
               />
             </Typography>
             <Typography variant="body2" color="text.secondary">
