@@ -19,7 +19,7 @@ function DetailedCar() {
         setName(carData.Name);
         setYear(carData.Year);
       } catch (error) {
-        alert("Error fetching car data.");
+        alert("Id was not found.");
       }
     };
 
@@ -38,7 +38,6 @@ function DetailedCar() {
               id="outlined-required-read-only-input"
               label="Carname"
               value={name}
-              onChange={(e) => setName(e.target.value)}
               InputProps={{
                 readOnly: true,
               }}
@@ -49,7 +48,6 @@ function DetailedCar() {
               id="outlined-required-read-only-input"
               label="Year"
               value={year}
-              onChange={(e) => setYear(e.target.value)}
               InputProps={{
                 readOnly: true,
               }}
