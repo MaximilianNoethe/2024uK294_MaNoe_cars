@@ -12,10 +12,10 @@ import { IconButton, Link } from "@mui/material";
 import { useEffect, useState } from "react";
 import CarService from "../../Service/CarDataService";
 import EditCarButton from "../Atoms/EditCarButton";
+import ByIdButton from "../Atoms/ByIdButton";
 
 function CarPage() {
   const [APICarData, setAPICarData] = useState([]);
- 
 
   useEffect(() => {
     CarService()
@@ -57,6 +57,8 @@ function CarPage() {
                   <TableCell>{car.id}</TableCell>
                   <TableCell align="right">{car.Name}</TableCell>
                   <TableCell align="right">{car.Year}</TableCell>
+                  <ByIdButton carId={car.id} />
+                  <EditCarButton carId={car.id} />
                   <IconButton
                     edge="end"
                     aria-label="delete"
@@ -64,7 +66,6 @@ function CarPage() {
                   >
                     <DeleteIcon />
                   </IconButton>
-                 <EditCarButton carId={car.id}/>
                 </TableRow>
               );
             })}
