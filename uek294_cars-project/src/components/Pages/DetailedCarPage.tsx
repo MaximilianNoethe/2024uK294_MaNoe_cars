@@ -1,7 +1,5 @@
 //Car by id
 import Navbar from "../Molecules/Navbar";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
@@ -36,30 +34,28 @@ function DetailedCarPage() {
 
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="div">
             <TextField
-                id="outlined-required-read-only-input"
-                label="Carname"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                InputProps={{
-                  readOnly: true,
-                }}
-              />
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              <TextField
-                id="outlined-required-read-only-input"
-                label="Year"
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
-                InputProps={{
-                  readOnly: true,
-                }}
-              />
-            </Typography>
-          </CardContent>
+              id="outlined-required-read-only-input"
+              label="Carname"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              InputProps={{
+                readOnly: true,
+              }}
+            />
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            <TextField
+              id="outlined-required-read-only-input"
+              label="Year"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              InputProps={{
+                readOnly: true,
+              }}
+            />
+          </Typography>
         </Grid>
       </Grid>
     </>
