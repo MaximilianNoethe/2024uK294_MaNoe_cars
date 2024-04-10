@@ -5,10 +5,22 @@ import { useFormik } from "formik";
 import LoginService from "../../Service/Authorization";
 import { defaultInstance } from "../../Service/Api";
 
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.email) {
+    errors.email = "Required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+    errors.email = "Invalid email address";
+  }
+
+  return errors;
+};
+
 export default function Login() {
   const navigate = useNavigate();
 
-  const handleSubmit = (email: string, password: string) => {
+  const handleSubmit = (email, password) => {
     LoginService(defaultInstance)
       .login({ email, password })
       .then((response: { data: { accessToken: string } }) => {
@@ -16,7 +28,7 @@ export default function Login() {
         localStorage.setItem("token", "Bearer " + response.data.accessToken);
         navigate("/car");
       })
-      .catch((e: { response: { data: any } }) => {
+      .catch((e) => {
         console.error(e.response.data);
       });
   };
@@ -26,9 +38,8 @@ export default function Login() {
       email: "",
       password: "",
     },
-    onSubmit: (values: { email: string; password: string }) => {
-      console.log(values);
-
+    validate, // Validate function added here
+    onSubmit: (values) => {
       handleSubmit(values.email, values.password);
     },
   });
@@ -53,6 +64,8 @@ export default function Login() {
           variant="standard"
           onChange={formik.handleChange}
           value={formik.values.email}
+          error={formik.touched.email && Boolean(formik.errors.email)} // Error handling
+          helperText={formik.touched.email && formik.errors.email}
         />
         <TextField
           id="standard-password-input"
