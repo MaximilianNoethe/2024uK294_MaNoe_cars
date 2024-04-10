@@ -8,16 +8,17 @@ const CarService = (api: AxiosInstance = defaultInstance) => ({
       const response = await api.get("cars");
       return response["data"];
     } catch (error) {
-      throw error;
+      console.error("Error accured");
     }
   },
+
 
   getCarById: async (carId) => {
     try {
       const response = await api.get(`cars/${carId}`);
       return response.data;
     } catch (error) {
-      throw error;
+      console.error("Error accured");
     }
   },
 
@@ -26,7 +27,7 @@ const CarService = (api: AxiosInstance = defaultInstance) => ({
       const response = await api.delete(`cars/${carId}`);
       return response.data;
     } catch (error) {
-      throw error;
+      console.error("Error accured");
     }
   },
 
@@ -37,7 +38,8 @@ const CarService = (api: AxiosInstance = defaultInstance) => ({
       const response = await api.post("cars", data);
       return response.data;
     } catch (error) {
-      throw error;
+      console.error("Error accured");
+      
     }
   },
 
@@ -48,9 +50,10 @@ const CarService = (api: AxiosInstance = defaultInstance) => ({
       const response = await api.put(`cars/${carId}`, data);
       return response.data;
     } catch (error) {
-      throw error;
+      console.error("Error accured");
     }
   },
-});
+}
+);
 
 export default CarService;
