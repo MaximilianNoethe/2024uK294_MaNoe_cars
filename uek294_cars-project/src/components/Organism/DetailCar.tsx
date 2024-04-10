@@ -28,9 +28,11 @@ function DetailedCar() {
 
   return (
     <>
+    
       <Navbar />
+      <Typography>
       <h1>Detailed version</h1>
-
+      </Typography>
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <Typography gutterBottom variant="h5" component="div">
