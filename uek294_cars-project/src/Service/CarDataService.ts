@@ -1,7 +1,6 @@
 import { AxiosInstance } from "axios";
 import { defaultInstance } from "./Api";
 
-
 const CarService = (api: AxiosInstance = defaultInstance) => ({
   getCarData: async () => {
     try {
@@ -11,7 +10,6 @@ const CarService = (api: AxiosInstance = defaultInstance) => ({
       console.error("Error accured");
     }
   },
-
 
   getCarById: async (carId) => {
     try {
@@ -39,7 +37,6 @@ const CarService = (api: AxiosInstance = defaultInstance) => ({
       return response.data;
     } catch (error) {
       console.error("Error accured");
-      
     }
   },
 
@@ -53,7 +50,6 @@ const CarService = (api: AxiosInstance = defaultInstance) => ({
       console.error("Error accured");
     }
   },
-}
-);
+});
 
 export default CarService;
