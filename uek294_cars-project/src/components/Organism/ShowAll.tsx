@@ -3,8 +3,6 @@ import Navbar from "../Molecules/Navbar";
 import Tablelist from "../Molecules/Table";
 
 function ShowAll() {
-  
-
   return (
     <>
       <Navbar />

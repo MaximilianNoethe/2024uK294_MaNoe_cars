@@ -38,7 +38,7 @@ export default function Login() {
       email: "",
       password: "",
     },
-    validate, 
+    validate,
     onSubmit: (values) => {
       handleSubmit(values.email, values.password);
     },

@@ -36,10 +36,9 @@ function EditCar() {
   };
   return (
     <>
-    
       <Navbar />
       <Typography>
-      <h1>Update a car</h1>
+        <h1>Update a car</h1>
       </Typography>
 
       <Grid container spacing={2}>
