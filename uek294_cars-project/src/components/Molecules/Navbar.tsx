@@ -2,8 +2,6 @@ import Title from "../Atoms/Title";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import AddCarButton from "../Atoms/AddCarButton";
 import HomeButton from "../Atoms/HomeButton";
 
