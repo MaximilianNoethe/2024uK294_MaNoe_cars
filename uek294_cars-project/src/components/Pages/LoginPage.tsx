@@ -5,7 +5,6 @@ import { useFormik } from "formik";
 import LoginService from "../../Service/Authorization";
 import { defaultInstance } from "../../Service/Api";
 
-
 export default function Login() {
   const navigate = useNavigate();
 
