@@ -23,7 +23,9 @@ function CreateCar() {
   return (
     <>
       <Navbar />
-      <h1>Create a new car</h1>
+      <Typography>
+        <h1>Create a new car</h1>
+      </Typography>
 
       <Grid container spacing={2}>
         <Grid item xs={6}>
@@ -34,6 +36,7 @@ function CreateCar() {
               value={name}
               onChange={(e) => setName(e.target.value)} // Rendered the whole site and checks if something changed, if so then it sets the new data
               variant="standard"
+              required
             />
             <br />
             <TextField
@@ -42,6 +45,7 @@ function CreateCar() {
               value={year}
               onChange={(e) => setYear(e.target.value)}
               variant="standard"
+              required
             />
           </Typography>
           <Button
