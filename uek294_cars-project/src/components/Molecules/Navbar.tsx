@@ -17,12 +17,6 @@ export default function ButtonAppBar() {
           <HomeButton />
 
           <AddCarButton />
-
-          <div>
-            <IconButton color="inherit">
-              <AccountCircle />
-            </IconButton>
-          </div>
         </Toolbar>
       </AppBar>
     </Box>
