@@ -30,7 +30,7 @@ function EditCarPage() {
   const updateOnClickHandler = async () => {
     try {
       await CarService().updateCar(carId, name, year);
-      alert("Updated car successful.")
+      alert("Updating car was successful.");
     } catch (error) {
       alert("Error updating a car");
     }
@@ -45,7 +45,7 @@ function EditCarPage() {
           <Typography>
             <TextField
               id="margin-normal"
-              label="Name"
+              label="Carname"
               value={name}
               onChange={(e) => setName(e.target.value)} // Rendered the whole site and checks if something changed, if so then it sets the new data
               variant="standard"
@@ -54,7 +54,6 @@ function EditCarPage() {
             <TextField
               id="margin-normal"
               label="Year"
-              // type="date"
               value={year}
               onChange={(e) => setYear(e.target.value)}
               variant="standard"
