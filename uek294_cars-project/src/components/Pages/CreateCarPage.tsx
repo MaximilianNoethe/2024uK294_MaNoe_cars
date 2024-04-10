@@ -14,8 +14,9 @@ function CreateCarPage() {
   const handleCreateCar = async () => {
     try {
       await CarService().createCar(name, year);
+      alert("Creating car was successful.");
     } catch (error) {
-      console.error("Error creating a car", error);
+      alert("Error creating a car!");
     }
   };
 
@@ -23,7 +24,6 @@ function CreateCarPage() {
     <>
       <Navbar />
       <h1>Create a new car</h1>
-
       
         <Grid container spacing={2}>
           <Grid item xs={6}>
