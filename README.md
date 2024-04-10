@@ -1,4 +1,3 @@
-# Welcome
+# Welcome!
 
-Hey! Welcome to my project!
-
+Hey! Thank you for using my project!
