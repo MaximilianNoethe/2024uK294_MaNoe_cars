@@ -4,11 +4,11 @@ import axios, {
   InternalAxiosRequestConfig,
 } from "axios";
 
-export const defaultAxiosInstance: AxiosInstance = axios.create({
+export const defaultInstance: AxiosInstance = axios.create({
   baseURL: "http://localhost:3030/",
 });
 
-defaultAxiosInstance.interceptors.request.use(
+defaultInstance.interceptors.request.use(
   (config: InternalAxiosRequestConfig<any>) => {
     let correctPath: boolean = config.url !== "login";
     if (localStorage.getItem("accessToken") !== "" && correctPath) {
