@@ -1,23 +1,11 @@
 import { AxiosInstance } from "axios";
-import { defaultAxiosInstance } from "./Api";
-import { login } from "./Authorization";
+import { defaultInstance } from "./Api";
 
-const CarService = (api: AxiosInstance = defaultAxiosInstance) => ({
+
+const CarService = (api: AxiosInstance = defaultInstance) => ({
   getCarData: async () => {
     try {
-      await login("maximilian@mail.com", "1234");
-      const accessToken = localStorage.getItem("accessToken");
-      if (!accessToken) {
-        throw new Error("No Access token in local storage available");
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
-
-      const response = await api.get("cars", config);
+      const response = await api.get("cars");
       return response["data"];
     } catch (error) {
       throw error;
@@ -26,19 +14,7 @@ const CarService = (api: AxiosInstance = defaultAxiosInstance) => ({
 
   getCarById: async (carId) => {
     try {
-      await login("maximilian@mail.com", "1234");
-      const accessToken = localStorage.getItem("accessToken");
-      if (!accessToken) {
-        throw new Error("No Access token in local storage available");
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
-
-      const response = await api.get(`cars/${carId}`, config);
+      const response = await api.get(`cars/${carId}`);
       return response.data;
     } catch (error) {
       throw error;
@@ -47,19 +23,7 @@ const CarService = (api: AxiosInstance = defaultAxiosInstance) => ({
 
   deleteCar: async (carId) => {
     try {
-      await login("maximilian@mail.com", "1234");
-      const accessToken = localStorage.getItem("accessToken");
-      if (!accessToken) {
-        throw new Error("No Access token in local storage available");
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
-
-      const response = await api.delete(`cars/${carId}`, config);
+      const response = await api.delete(`cars/${carId}`);
       return response.data;
     } catch (error) {
       throw error;
@@ -68,21 +32,9 @@ const CarService = (api: AxiosInstance = defaultAxiosInstance) => ({
 
   createCar: async (Name, Year) => {
     try {
-      await login("maximilian@mail.com", "1234");
-      const accessToken = localStorage.getItem("accessToken");
-      if (!accessToken) {
-        throw new Error("No Access token in local storage available");
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
-
       const data = { Name, Year };
 
-      const response = await api.post("cars", data, config);
+      const response = await api.post("cars", data);
       return response.data;
     } catch (error) {
       throw error;
@@ -91,21 +43,9 @@ const CarService = (api: AxiosInstance = defaultAxiosInstance) => ({
 
   updateCar: async (carId, Name, Year) => {
     try {
-      await login("maximilian@mail.com", "1234");
-      const accessToken = localStorage.getItem("accessToken");
-      if (!accessToken) {
-        throw new Error("No Access token in local storage available");
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
-
       const data = { Name, Year };
 
-      const response = await api.put(`cars/${carId}`, data, config);
+      const response = await api.put(`cars/${carId}`, data);
       return response.data;
     } catch (error) {
       throw error;
